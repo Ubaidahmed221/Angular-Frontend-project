@@ -22,13 +22,15 @@ import {
 } from '@angular/material/dialog';
 import { CreatePostComponent } from './components/dialogs/create-post/create-post.component';
 import { UpdateProductComponent } from './components/dialogs/update-product/update-product.component';
+import { DeletePostComponent } from './components/dialogs/delete-post/delete-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     CreatePostComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    DeletePostComponent
   ],
   imports: [
     BrowserModule,
