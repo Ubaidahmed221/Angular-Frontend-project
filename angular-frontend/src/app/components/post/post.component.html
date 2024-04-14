@@ -1,0 +1,47 @@
+<div class="table-div">
+  <h1 class="table-title">Product Table</h1>
+  <button mat-flat-button color="primary" (click)="openCreateModal()">Create</button>
+  <table mat-table [dataSource]="products" class="mat-elevation-z8 table-class">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="p_id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{ element.p_id }} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef> Image </th>
+      <td mat-cell *matCellDef="let element"> <img class="images" src="{{ url+ '' + element.image }}" alt="{{ element.name}}"  ></td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-fab color="primary"  aria-label="Example icon button with a edit icon">
+          <mat-icon>edit</mat-icon>
+        </button>
+        &nbsp;&nbsp;
+        <button mat-fab color="warn" aria-label="Example icon button with a delete icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+</div>

@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Create Product</h2>
+<form [formGroup]="form">
+  <mat-dialog-content>
+    <div class="">
+      <mat-form-field>
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="enter product name " formControlName="name" required />
+         <mat-error *ngIf="(form.get('name')?.dirty || form.get('name')?.touched || form.get('name')?.hasError('required'))" >{{ title_label }}{{ required }}</mat-error>
+      </mat-form-field>
+    </div>
+ <br>
+    <div class="">
+      <button type="button" (click)="fileInput.click()" mat-raised-button> Choose File</button>
+      <input hidden #fileInput type="file" (change)="Onfileselected($event)" >
+      <mat-error *ngIf="image_show_error" >{{ image_required_label }}</mat-error>
+      <div *ngIf="selectedFile != null">
+        <img src="{{ image_url }}" alt="{{ selectedFile?.name }}" class="preiewimage" >
+      </div>
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="closeModal()">Cancel</button>
+    <button mat-button  (click)="submit()" cdkFocusInitial>Create</button>
+  </mat-dialog-actions>
+</form>
